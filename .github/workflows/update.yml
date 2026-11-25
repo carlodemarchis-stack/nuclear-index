@@ -1,0 +1,31 @@
+# Weekdays after the US close: fetch Yahoo Finance closes, rebuild data/index.json,
+# commit if it changed. build.py exits non-zero on a data problem (a stock with no
+# recent close, a >20% one-day index move), and then nothing is committed.
+name: update-index
+on:
+  schedule:
+    # US closes 21:00 UTC (20:00 in summer). GitHub starts scheduled runs late and
+    # is busiest on the hour, hence :47. The second slot catches a missed or late run.
+    - cron: "47 22 * * 1-5"
+    - cron: "47 5 * * 2-6"
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency: update-index
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Build
+        run: python3 -W ignore tools/build.py
+      - name: Publish if anything changed
+        run: |
+          git add data/index.json
+          if git diff --cached --quiet; then echo "no change"; exit 0; fi
+          git -c user.name="nuclear-bot" -c user.email="actions@users.noreply.github.com" \
+            commit -m "Index through $(python3 -c 'import json;print(json.load(open("data/index.json"))["as_of"])')"
+          git push

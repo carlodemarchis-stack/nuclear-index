@@ -1,0 +1,174 @@
+{
+ "name": "AGWAS Nuclear Index",
+ "base_date": "2025-11-25",
+ "base_value": 100,
+ "list_source": "https://simplywall.st/discover/global/investing-ideas/473644/nuclear-renaissance",
+ "list_snapshot": "2026-11-25",
+ "shares_note": "Shares outstanding held constant; taken from Yahoo Finance market caps on 20-23 Nov 2026.",
+ "constituents": [
+  {
+   "ticker": "RR",
+   "yahoo": "RR.L",
+   "name": "Rolls-Royce Holdings",
+   "country": "GB",
+   "industry": "Capital Goods",
+   "shares": 8182793506,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "CCO",
+   "yahoo": "CCO.TO",
+   "name": "Cameco",
+   "country": "CA",
+   "industry": "Energy",
+   "shares": 435532979,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "ATRL",
+   "yahoo": "ATRL.TO",
+   "name": "AtkinsRéalis Group",
+   "country": "CA",
+   "industry": "Capital Goods",
+   "shares": 160034074,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "BAB",
+   "yahoo": "BAB.L",
+   "name": "Babcock International Group",
+   "country": "GB",
+   "industry": "Capital Goods",
+   "shares": 490180081,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "FLR",
+   "yahoo": "FLR",
+   "name": "Fluor",
+   "country": "US",
+   "industry": "Capital Goods",
+   "shares": 130089918,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "TKMS",
+   "yahoo": "TKMS.DE",
+   "name": "TKMS",
+   "country": "DE",
+   "industry": "Capital Goods",
+   "shares": 62456021,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "BDT",
+   "yahoo": "BDT.TO",
+   "name": "Bird Construction",
+   "country": "CA",
+   "industry": "Capital Goods",
+   "shares": 55403298,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "EXENS",
+   "yahoo": "EXENS.PA",
+   "name": "Exosens",
+   "country": "FR",
+   "industry": "Capital Goods",
+   "shares": 50673020,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "ARE",
+   "yahoo": "ARE.TO",
+   "name": "Aecon Group",
+   "country": "CA",
+   "industry": "Capital Goods",
+   "shares": 68576582,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "A052690",
+   "yahoo": "052690.KS",
+   "name": "KEPCO Engineering & Construction",
+   "country": "KR",
+   "industry": "Capital Goods",
+   "shares": 38043505,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "STDN",
+   "yahoo": "STDN",
+   "name": "Standard Nuclear",
+   "country": "US",
+   "industry": "Energy",
+   "shares": 157291858,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "GHM",
+   "yahoo": "GHM",
+   "name": "Graham",
+   "country": "US",
+   "industry": "Capital Goods",
+   "shares": 11738000,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "A056190",
+   "yahoo": "056190.KQ",
+   "name": "SFA Engineering",
+   "country": "KR",
+   "industry": "Capital Goods",
+   "shares": 27898912,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "SLX",
+   "yahoo": "SLX.AX",
+   "name": "Silex Systems",
+   "country": "AU",
+   "industry": "Capital Goods",
+   "shares": 278788195,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "AVG",
+   "yahoo": "AVG.L",
+   "name": "Avingtrans",
+   "country": "GB",
+   "industry": "Capital Goods",
+   "shares": 36931072,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "A044490",
+   "yahoo": "044490.KQ",
+   "name": "Taewoong",
+   "country": "KR",
+   "industry": "Capital Goods",
+   "shares": 20007381,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "SFR",
+   "yahoo": "SFR.L",
+   "name": "Severfield",
+   "country": "GB",
+   "industry": "Capital Goods",
+   "shares": 295282267,
+   "source": "Simply Wall St"
+  },
+  {
+   "ticker": "NWCL",
+   "yahoo": "NWCL",
+   "name": "newcleo",
+   "country": "US",
+   "industry": "Capital Goods",
+   "shares": 281408499,
+   "source": "added by hand",
+   "since": "2026-09-15",
+   "note": "Yahoo history before 15 Sep 2026 is the SPAC shell (~US$10.6 trust value); newcleo joins from its first trading day after the merger."
+  }
+ ]
+}
