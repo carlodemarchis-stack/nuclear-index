@@ -169,6 +169,15 @@
    "source": "added by hand",
    "since": "2026-09-15",
    "note": "Yahoo history before 15 Sep 2026 is the SPAC shell (~US$10.6 trust value); newcleo joins from its first trading day after the merger."
+  },
+  {
+   "ticker": "OKLO",
+   "yahoo": "OKLO",
+   "name": "Oklo",
+   "country": "US",
+   "industry": "Utilities",
+   "shares": 195161750,
+   "source": "added by hand"
   }
  ]
 }

@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nuclear Index — A guy with a scarf</title>
-<meta name="description" content="A daily index of 18 listed companies behind the nuclear renaissance, equal-weight and market-cap weight, in US dollars. By A guy with a scarf.">
+<meta name="description" content="A daily index of the listed companies behind the nuclear renaissance, equal-weight and market-cap weight, in US dollars. By A guy with a scarf.">
 <link rel="icon" href="favicon.svg">
 <style>
 :root {
@@ -84,7 +84,7 @@ footer p { margin:0 0 8px; }
 <main>
   <p class="eyebrow"><a href="https://dataviz.aguywithascarf.com/">A guy with a scarf</a> · Markets</p>
   <h1>Nuclear Index</h1>
-  <p class="lede">18 listed companies building the nuclear renaissance: reactors, fuel, engineering and the supply chain. Priced in US dollars, base 100 on 25 Nov 2025, updated every weekday after the US close.</p>
+  <p class="lede"><span id="count">The</span> listed companies building the nuclear renaissance: reactors, fuel, engineering and the supply chain. Priced in US dollars, base 100 on 25 Nov 2025, updated every weekday after the US close.</p>
   <p class="asof" id="asof"></p>
 
   <div class="controls">
@@ -152,13 +152,15 @@ let D;
 fetch("data/index.json", { cache: "no-cache" }).then(r => r.json()).then(d => { D = d; init(); });
 
 function init() {
+  const sws = D.constituents.filter(c => c.source === "Simply Wall St"), added = D.constituents.filter(c => c.source !== "Simply Wall St");
+  $("#count").textContent = D.constituents.length;
   $("#asof").textContent = `Closing prices to ${fmtDate(D.as_of)} · ${D.constituents.length} companies`;
   document.querySelectorAll("[data-w]").forEach(b => b.onclick = () => { state.w = b.dataset.w; render(); });
   document.querySelectorAll("[data-r]").forEach(b => b.onclick = () => { state.r = b.dataset.r; render(); });
   window.addEventListener("resize", () => drawChart());
   $("#foot").innerHTML = `
     <p><b>Method.</b> Two indices over the same companies, both in US dollars (local closes × that day's FX close from Yahoo Finance). <b>Equal weight</b> averages the day's returns, so every company counts the same. <b>Market-cap weight</b> weights each by its value at the previous close; ${D.shares_note.toLowerCase()} Rolls-Royce is about two thirds of it. Markets that are shut on a date carry their last close. Companies join from their first close in the window: Standard Nuclear from its listing, newcleo from 15 Sep 2026, its first session after the SPAC merger.</p>
-    <p><b>Constituents.</b> The ${D.constituents.length - 1} names on Simply Wall St's <a href="${D.list_source}" rel="noopener">Nuclear Renaissance</a> idea as of ${fmtDate(D.list_snapshot)}, plus newcleo (NWCL). Not affiliated with Simply Wall St; the list is a snapshot and does not follow later changes to their screener.</p>
+    <p><b>Constituents.</b> The ${sws.length} names on Simply Wall St's <a href="${D.list_source}" rel="noopener">Nuclear Renaissance</a> idea as of ${fmtDate(D.list_snapshot)}, plus ${added.map(c => `${c.name} (${c.ticker})`).join(" and ")}, added by hand. Not affiliated with Simply Wall St; the list is a snapshot and does not follow later changes to their screener.</p>
     <p>Not investment advice. Prices are end-of-day and may be revised. Updated ${D.generated.replace("T", " ").replace("Z", " UTC")}.</p>
     <p>Produced by <a href="https://aguywithascarf.com/">A guy with a scarf</a>.</p>`;
   render();
